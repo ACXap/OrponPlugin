@@ -1,0 +1,271 @@
+.textAddress {
+  height: 18px;
+  margin-top: 5px;
+  opacity: 0;
+}
+
+.textAddressPossible {
+  color: Red;
+  opacity: 1;
+  transition: all 1s;
+}
+
+.textAddressExact {
+  color: Blue;
+  opacity: 1;
+  transition: all 1s;
+}
+
+.iconAttribute {
+  opacity: 0;
+}
+
+.divAttribute {
+  color: Black;
+  display: inline-flex;
+}
+
+.divAttributeFalse {
+  color: red;
+}
+
+.divAttributeTrue {
+  color: green;
+}
+
+.divAttributeAlert {
+  color: magenta;
+}
+
+.showIcon {
+  opacity: 1;
+  transition: all 1s;
+}
+
+.coordinateElement {
+  opacity: 0;
+  color: blue;
+}
+
+.mapElement {
+  opacity: 0;
+  cursor: pointer;
+  color: blue;
+}
+
+.showCoordinate {
+  opacity: 1;
+  transition: all 1s;
+}
+
+#helperFloatingWindow {
+  position: fixed;
+  z-index: 9;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(66, 139, 202);
+  text-align: center;
+  width: 250px;
+  opacity: 0.6;
+  transition: opacity 1s;
+}
+#helperFloatingWindow:hover {
+  opacity: 1;
+}
+
+#helperFloatingWindowHeader {
+  padding: 10px;
+  z-index: 10;
+  background-color: rgb(66, 139, 202);
+  color: rgb(255, 255, 255);
+}
+
+#openBodyHelper {
+  position: absolute;
+  cursor: pointer;
+  left: 215px;
+}
+
+.sectionHeader {
+  cursor: pointer;
+  display: flex;
+  height: 50px;
+  border-top: 1px solid rgb(66, 139, 202);
+  border-bottom: 1px solid rgb(66, 139, 202);
+}
+
+.sectionHeader:hover {
+  color: #fff;
+  background-color: #428bca;
+}
+
+.headerText {
+  margin: auto;
+  text-align: center;
+}
+
+.popup,
+.popupAddressNotFound {
+  visibility: hidden;
+}
+
+.popuptext {
+  width: 200px;
+  background-color: #555;
+  color: #fff;
+  border-radius: 6px;
+  padding: 8px 5px;
+  position: absolute;
+  z-index: 1;
+  left: 254px;
+}
+
+.popuptext::after {
+  content: "";
+  position: absolute;
+  top: 20%;
+  left: -2%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+  transform: rotate(90deg);
+}
+
+.popupTextAddressNotFound {
+  width: 200px;
+  background-color: #555;
+  color: #fff;
+  border-radius: 6px;
+  padding: 8px 5px;
+  position: absolute;
+  z-index: 1;
+}
+
+.notFoundRight {
+  left: 254px;
+}
+
+.notFoundLeft {
+  left: -204px;
+}
+
+.notFoundRight::after {
+  content: "";
+  position: absolute;
+  top: 20%;
+  left: -2%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+  transform: rotate(90deg);
+}
+
+.notFoundLeft::after {
+  content: "";
+  position: absolute;
+  top: 20%;
+  left: 102%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+  transform: rotate(-90deg);
+}
+
+.bodyHelper {
+  display: none;
+}
+
+.showElement {
+  visibility: visible;
+}
+
+.showModule {
+  display: block;
+}
+
+.rotate180 {
+  transform: rotate(180deg);
+}
+
+.noneSelect {
+  user-select: none;
+}
+
+.buttonHelperWindow {
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 10%;
+  user-select: none;
+}
+
+.openHelp {
+  margin-right: 10px;
+  margin-top: 5px;
+}
+
+.buttonHelperWindow:hover {
+  color: #fff;
+  background-color: #428bca;
+  border: 1px solid #428bca;
+}
+
+.statusIcon {
+  color: red;
+  margin-left: 5px;
+  margin-top: 18px;
+}
+
+.divSectionBodyModule {
+  padding: 10px;
+}
+
+.nextElement {
+  color: red;
+  font-size: large;
+}
+
+.openHelp:hover + .popup {
+  visibility: visible;
+}
+
+.rootMapDivHelper {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  width: 1000px;
+  height: auto;
+  opacity: 0;
+  position: absolute;
+  margin-left: 26%;
+  margin-top: 10%;
+  z-index: 11;
+  transition: all 2s;
+}
+
+.navHelperOrpon {
+  display: flex;
+  align-items: center;
+}
+
+.buttonClose {
+  margin-left: auto;
+  margin-top: 5px;
+  padding: 5px;
+}
+
+#mapHelperOrpon {
+  height: 600px;
+  width: 98%;
+  margin: 10px;
+}
+
+.rootMapDivHelperOpen {
+  opacity: 1;
+  transition: all 2s;
+}
+
+.lbMap {
+  margin-left: auto;
+  margin-right: 5px;
+}

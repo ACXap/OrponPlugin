@@ -1,0 +1,90 @@
+{
+    "manifest_version": 2,
+    "name": "HelperORPON",
+    "description": "Помощник ОРПОН",
+    "version": "2.8.0",
+    "icons": {
+        "55": "img/logoR.png"
+    },
+    "browser_action": {
+        "default_icon": "img/logoFias.png",
+        "default_popup": "Popup/popup.html",
+        "default_title": "Проверка ФИАС"
+    },
+    "web_accessible_resources": [
+        "img/*.png",
+        "FloatingWindow/modulesFloatingWindow/*.html"
+    ],
+    "permissions": [
+        "activeTab",
+        "storage",
+        "webRequest",
+        "webRequestBlocking",
+        "https://orpon-prod.rt.ru/orpon/*",
+        "https://api-maps.yandex.ru/*"
+    ],
+    "background": {
+        "scripts": [
+            "background.js"
+        ],
+        "persistent": true
+    },
+    "options_page": "Option/options.html",
+    "content_scripts": [
+        {
+            "matches": [
+                "https://orpon-prod.rt.ru/orpon/*"
+            ],
+            "run_at": "document_end",
+            "css": [
+                "css/orponHelper.css",
+                "css/leaflet.css"
+            ],
+            "js": [
+                "Helpers/geoCodRepository.js",
+                "Helpers/dadataRepository.js",
+                "Helpers/syncAdjacentSystem.js",
+                "Helpers/ImportModuleGeo.js",
+                "Helpers/factoryUrlAddressModule.js",
+                "Helpers/ui.js",
+                "Map/leaflet.js",
+                "Map/mapTile.js",
+                "Map/map.js",
+                "Map/mapEditor.js",
+                "address/addressModel.js",
+                "address/addressPresenter.js",
+                "address/addressAttribute.js",
+                "address/addressAttributeId.js",
+                "address/addressAttributeTextAddress.js",
+                "address/addressAttributeTypeAddress.js",
+                "address/addressAttributeHouse.js",
+                "address/addressAttributeCoordinate.js",
+                "address/addressAttributeJournal.js",
+                "address/addressAttributeCopyAddress.js",
+                "address/addressAttributeMap.js",
+                "FloatingWindow/floatingWindow.js",
+                "FloatingWindow/hfw/hfw.js",
+                "FloatingWindow/hfw/helperFloatingWindow.js",
+                "FloatingWindow/hfw/helperFloatingWindowView.js",
+                "FloatingWindow/hfw/helperFloatingWindowModel.js",
+                "FloatingWindow/mfw/mfwPresenter.js",
+                "FloatingWindow/mfw/moduleFloatingWindowView.js",
+                "FloatingWindow/mfw/mfwModel.js",
+                "FloatingWindow/mfw/presenter/syncListAddressModule.js",
+                "FloatingWindow/mfw/presenter/copyAddressModule.js",
+                "FloatingWindow/mfw/presenter/listAddressModule.js",
+                "FloatingWindow/mfw/presenter/settingsModule.js",
+                "FloatingWindow/mfw/view/listAddressModuleView.js",
+                "FloatingWindow/mfw/view/copyAddressModuleView.js",
+                "FloatingWindow/mfw/view/copyHelpModuleView.js",
+                "FloatingWindow/mfw/view/syncListAddressModuleView.js",
+                "FloatingWindow/mfw/view/delAddressModuleView.js",
+                "FloatingWindow/mfw/view/changeAddressModuleView.js",
+                "FloatingWindow/mfw/view/decomAddressModuleView.js",
+                "FloatingWindow/mfw/view/settingsModuleView.js",
+                "FloatingWindow/mfw/view/editAddressModuleView.js",
+                "app.js"
+            ]
+        }
+    ]
+}

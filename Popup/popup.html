@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>ФИАС</title>
+    <style type="text/css">
+        .iconWebSite {
+            text-decoration: none;
+        }
+
+        body {
+            background: bisque;
+            width: 500px;
+        }
+
+        #checkDadata {
+            position: fixed;
+            margin-left: 93.5%;
+            margin-top: -1.4%;
+        }
+
+        .divIconSite {
+            position: fixed;
+            margin-left: 50%;
+        }
+
+        input {
+            width: 300px;
+            margin-left: 5px;
+            margin-right: 15px;
+        }
+
+        .adrDiv {
+            margin: 10px;
+            font-size: initial;
+        }
+
+        img {
+            width: 24px;
+            height: 24px
+        }
+
+        select {
+            width: 100%;
+            overflow-y: auto;
+            margin-top: 5px;
+        }
+
+        h1 {
+            margin: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="checkDadata" title="Тестировать сервис">T</button>
+    <div class="divIconSite">
+        <a class="iconWebSite" title="ФИАС" href="https://fias.nalog.ru/ExtendedSearchPage.aspx" target="_blank" rel="noopener">
+            <img src="../img/logoFias.png" alt="ФИАС" /></a>
+        <a class="iconWebSite" title="Подсказки DaData.ru" href="https://dadata.ru/suggestions/#address" target="_blank" rel="noopener">
+            <img src="../img/logoDadata.ico" alt="DaData.ru" /></a>
+    </div>
+    <h1>Проверка ФИАС</h1>
+    <div style="border-bottom: 1px solid darkred">
+        <button id="checkFias" style="width: 90px">Проверить</button>
+        <input id="textBoxFias" placeholder="Введите код ФИАС" type="text" />
+        <progress id="progressBarCheckFias" hidden></progress>
+        <h3 id="resultCheck">Тут будет результат</h3>
+    </div>
+    <h1>Поиск адреса</h1>
+    <div>
+        <button id="findAddress" style="width: 90px">Найти</button>
+        <input id="textBoxFindAddress" placeholder="Введите адрес для поиска" />
+        <progress id="progressBarFindAddress" hidden></progress>
+        <h3 id="resultFindAddress">Тут будет результат</h3>
+        <select id="listBoxFindAddress" hidden size="5"></select>
+        <div id="selectedAddressTable" hidden>
+            <div class="adrDiv"><b>Адрес:</b> <span id="selectAddress"></div>
+            <div class="adrDiv"><b>ФИАС:</b> <span id="selectAddressFias"></div>
+        </div>
+    </div>
+
+    <script src="../helpers/ui.js"></script>
+    <script src="../helpers/dadataRepository.js"></script>
+    <script src="popup.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Настройки помощника ОРПОН</title>
+    <style type="text/css">
+        body {
+            background: bisque;
+            background: url('../img/logoR.png') no-repeat bisque;
+        }
+
+        h1 {
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 100px;
+            width: 600px;
+        }
+
+        .divSettingsBody {
+            margin-left: auto;
+            margin-right: auto;
+            width: 600px;
+            margin-top: 100px;
+            font-size: medium;
+        }
+
+        .divItemSettings {
+            margin: 10px;
+        }
+
+        .labelInputText {
+            display: block;
+            margin-bottom: -5px;
+        }
+
+        .divStatusCheck {
+            display: inline;
+            margin-left: 10px;
+        }
+
+        .inputApiKey {
+            width: 350px;
+        }
+
+        #divGeoModule {
+            display: none;
+        }
+
+        #canUseGeoCoderUser:checked~#divGeoModule {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Настройки расширения "Помощник ОРПОН"</h1>
+    <div class="divSettingsBody">
+        <div class="divItemSettings">
+            <label for="textBoxApiKey" class="labelInputText">Ключ API проверки ФИАС</label>
+            <input id="textBoxApiKey" type="password" placeholder="Введите ключ доступа к API" class="inputApiKey" />
+            <button id="checkDadata">Тест</button>
+            <h3 id="statusCheckDadata" class="divStatusCheck"></h3>
+        </div>
+        <div class="divItemSettings">
+            <input id="canAutoCheck" type="checkbox" />
+            <label for="canAutoCheck">Проверять автоматически ФИАС</label></div>
+        <div class="divItemSettings">
+            <input id="canShowButtonJournal" type="checkbox" />
+            <label for="canShowButtonJournal">Добавить кнопку "Журнал синхронизации"</label></div>
+        <div class="divItemSettings">
+            <input id="canShowButtonCopyAddress" type="checkbox" />
+            <label for="canShowButtonCopyAddress">Добавить кнопку "Копировать адрес"</label></div>
+        <div class="divItemSettings">
+            <input id="canShowId" type="checkbox" />
+            <label for="canShowId">Отображать идентификатор адреса</label></div>
+        <div class="divItemSettings">
+            <input id="canUseFloatingWindow" type="checkbox" />
+            <label for="canUseFloatingWindow">Отображать вспомогательное плавающее окно</label></div>
+        <div class="divItemSettings">
+            <input id="canNotSyncAdjacentSystem" type="checkbox" />
+            <label for="canNotSyncAdjacentSystem">По умолчанию не синхронизировать со смежными системами</label></div>
+        <div class="divItemSettings">
+            <input id="canUseImportModuleGeo" type="checkbox" />
+            <label for="canUseImportModuleGeo">Использовать пользовательскую страницу импорта геоданных</label></div>
+        <div class="divItemSettings">
+            <input id="canUseGeoCoderUser" type="checkbox" />
+            <label for="canUseGeoCoderUser">Разрешить пользовательский модуль геокодирования</label>
+            <div id="divGeoModule">
+                <label for="textBoxApiKeyGeoCoder" class="labelInputText">Ключ API геокодера</label>
+                <input id="textBoxApiKeyGeoCoder" type="password" placeholder="Введите ключ доступа к API" class="inputApiKey" />
+                <button id="checkApiGeoCoder">Тест</button>
+                <h3 id="statusCheckApiGeoCoder" class="divStatusCheck"></h3>
+            </div>
+        </div>
+
+        <h3 id="status"></h3><button id="save" style="margin:50px">Сохранить</button>
+    </div>
+    <script src="../helpers/ui.js"></script>
+    <script src="../helpers/geoCodRepository.js"></script>
+    <script src="../helpers/dadataRepository.js"></script>
+    <script src="options.js"></script>
+</body>
+
+</html>
