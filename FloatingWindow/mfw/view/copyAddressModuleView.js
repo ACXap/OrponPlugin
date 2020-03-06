@@ -1,6 +1,4 @@
 "use strict";
-
-
 class CopyAddressModuleView extends ModuleFloatingWindowView {
 
     /** @public Событие копирования информации в буфер */

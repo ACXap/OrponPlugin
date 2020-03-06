@@ -6,8 +6,6 @@ class SettingsModuleView extends ModuleFloatingWindowView {
 
     constructor(option) {
         super(option);
-
-
     }
 
     setSync(sync) {

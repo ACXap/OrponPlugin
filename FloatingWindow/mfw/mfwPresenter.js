@@ -18,6 +18,7 @@ class ModuleFloatingWindow {
         this.id = option.id;
         this._model = option.model;
         this._view = option.view;
+        this._view.setId(option.id);
 
         // Подпись на событие открытия модуля
         this._view.onOpen = this._handlerOpenBody.bind(this);

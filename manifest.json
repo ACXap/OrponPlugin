@@ -46,6 +46,7 @@
                 "Helpers/syncAdjacentSystem.js",
                 "Helpers/ImportModuleGeo.js",
                 "Helpers/factoryUrlAddressModule.js",
+                "Helpers/factoryTextModule.js",
                 "Helpers/ui.js",
                 "Map/leaflet.js",
                 "Map/mapTile.js",
@@ -78,11 +79,7 @@
                 "FloatingWindow/mfw/view/copyAddressModuleView.js",
                 "FloatingWindow/mfw/view/copyHelpModuleView.js",
                 "FloatingWindow/mfw/view/syncListAddressModuleView.js",
-                "FloatingWindow/mfw/view/delAddressModuleView.js",
-                "FloatingWindow/mfw/view/changeAddressModuleView.js",
-                "FloatingWindow/mfw/view/decomAddressModuleView.js",
                 "FloatingWindow/mfw/view/settingsModuleView.js",
-                "FloatingWindow/mfw/view/editAddressModuleView.js",
                 "app.js"
             ]
         }

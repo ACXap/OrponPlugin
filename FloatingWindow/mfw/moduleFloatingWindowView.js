@@ -14,9 +14,9 @@ class ModuleFloatingWindowView {
 
     constructor(option) {
         this._elementHtml = document.createElement("div");
-        this._elementHtml.id = option.id;
+        //this._elementHtml.id = option.id;
         this._elementHtml.className = "divHelperModules";
-        this._elementHtml.innerHTML = option.html;
+        this._elementHtml.innerHTML = option;
 
         // Открыть - Закрыть тело модуля
         this._elementHtml.querySelector("section.sectionHeader").onclick = () => this._handlerClickHeader();
@@ -61,6 +61,10 @@ class ModuleFloatingWindowView {
      */
     _handlerPressHotKey(e) {
 
+    }
+
+    setId(id) {
+        this._elementHtml.id = id;
     }
 
     /**

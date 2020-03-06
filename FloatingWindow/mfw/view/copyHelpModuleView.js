@@ -4,8 +4,8 @@ class CopyHelpModuleView extends ListAddressModuleView {
 
     _eventPressEnter = new KeyboardEvent("keyup", { view: window, keyCode: 13, bubbles: true, cancelable: true });
 
-    constructor(option) {
-        super(option);
+    constructor(option, text) {
+        super(option, text);
     }
 
     /**

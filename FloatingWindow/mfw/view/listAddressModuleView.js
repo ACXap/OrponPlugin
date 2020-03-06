@@ -11,8 +11,11 @@ class ListAddressModuleView extends ModuleFloatingWindowView {
     /** @public Событие получения следующего значения из данных */
     onForward;
 
-    constructor(option) {
+    constructor(option, text) {
         super(option);
+
+        this._elementHtml.querySelector("p.headerText").innerHTML = `<b>${text.Header}</b>`;
+        this._elementHtml.querySelector("span.popuptext").innerHTML = text.HelpPopup;
 
         // Пользователь загружает данные для модуля
         this._elementHtml.querySelector("a.loadData").onclick = () => {
