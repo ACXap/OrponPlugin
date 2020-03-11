@@ -47,7 +47,7 @@ const observerCardAddress = new MutationObserver((mut) => {
         if (importModuleGeo) importModuleGeo.Update();
     }
 
-    syncAdjacentSystem.Reset();
+    if (syncAdjacentSystem) syncAdjacentSystem.Reset();
 });
 
 chrome.storage.local.get(null, (result) => {

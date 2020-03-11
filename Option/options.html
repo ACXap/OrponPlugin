@@ -24,13 +24,15 @@
             font-size: medium;
         }
 
-        .divItemSettings {
-            margin: 10px;
-        }
-
         .labelInputText {
             display: block;
             margin-bottom: -5px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            margin-bottom: 10px;
         }
 
         .divStatusCheck {
@@ -41,50 +43,29 @@
         .inputApiKey {
             width: 350px;
         }
-
-        #divGeoModule {
-            display: none;
-        }
-
-        #canUseGeoCoderUser:checked~#divGeoModule {
-            display: block;
-        }
     </style>
 </head>
 
 <body>
     <h1>Настройки расширения "Помощник ОРПОН"</h1>
     <div class="divSettingsBody">
-        <div class="divItemSettings">
+        <div>
             <label for="textBoxApiKey" class="labelInputText">Ключ API проверки ФИАС</label>
             <input id="textBoxApiKey" type="password" placeholder="Введите ключ доступа к API" class="inputApiKey" />
             <button id="checkDadata">Тест</button>
             <h3 id="statusCheckDadata" class="divStatusCheck"></h3>
         </div>
-        <div class="divItemSettings">
-            <input id="canAutoCheck" type="checkbox" />
-            <label for="canAutoCheck">Проверять автоматически ФИАС</label></div>
-        <div class="divItemSettings">
-            <input id="canShowButtonJournal" type="checkbox" />
-            <label for="canShowButtonJournal">Добавить кнопку "Журнал синхронизации"</label></div>
-        <div class="divItemSettings">
-            <input id="canShowButtonCopyAddress" type="checkbox" />
-            <label for="canShowButtonCopyAddress">Добавить кнопку "Копировать адрес"</label></div>
-        <div class="divItemSettings">
-            <input id="canShowId" type="checkbox" />
-            <label for="canShowId">Отображать идентификатор адреса</label></div>
-        <div class="divItemSettings">
-            <input id="canUseFloatingWindow" type="checkbox" />
-            <label for="canUseFloatingWindow">Отображать вспомогательное плавающее окно</label></div>
-        <div class="divItemSettings">
-            <input id="canNotSyncAdjacentSystem" type="checkbox" />
-            <label for="canNotSyncAdjacentSystem">По умолчанию не синхронизировать со смежными системами</label></div>
-        <div class="divItemSettings">
-            <input id="canUseImportModuleGeo" type="checkbox" />
-            <label for="canUseImportModuleGeo">Использовать пользовательскую страницу импорта геоданных</label></div>
-        <div class="divItemSettings">
-            <input id="canUseGeoCoderUser" type="checkbox" />
-            <label for="canUseGeoCoderUser">Разрешить пользовательский модуль геокодирования</label>
+        <div>
+            <label><input id="canAutoCheck" type="checkbox" />Проверять автоматически ФИАС</label>
+            <label><input id="canShowButtonJournal" type="checkbox" />Добавить кнопку "Журнал синхронизации"</label>
+            <label><input id="canShowButtonCopyAddress" type="checkbox" />Добавить кнопку "Копировать адрес"</label>
+            <label><input id="canShowId" type="checkbox" />Отображать идентификатор адреса</label>
+            <label><input id="canUseFloatingWindow" type="checkbox" />Отображать вспомогательное плавающее окно</label>
+            <label><input id="canNotSyncAdjacentSystem" type="checkbox" />По умолчанию не синхронизировать со смежными системами</label>
+            <label><input id="canUseImportModuleGeo" type="checkbox" />Использовать пользовательскую страницу импорта геоданных</label>
+            <label><input id="canUseGeoCoderUser" type="checkbox" />Разрешить пользовательский модуль геокодирования</label>
+        </div>
+        <div>
             <div id="divGeoModule">
                 <label for="textBoxApiKeyGeoCoder" class="labelInputText">Ключ API геокодера</label>
                 <input id="textBoxApiKeyGeoCoder" type="password" placeholder="Введите ключ доступа к API" class="inputApiKey" />

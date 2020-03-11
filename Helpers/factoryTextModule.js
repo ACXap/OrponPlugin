@@ -4,7 +4,7 @@
  */
 class FactoryTextModule {
 
-    _gidMove = "ГИДы перебираются по комбинации Ctrl+ Alt + Z или нажатием соответствующих кнопок управления.";
+    _idMove = "перебираются по комбинации Ctrl+ Alt + Z или нажатием соответствующих кнопок управления.";
 
     getTextModule(id) {
 
@@ -12,28 +12,31 @@ class FactoryTextModule {
             case "listAddress":
                 return {
                     Header: "Адреса по списку",
-                    HelpPopup: `Данный помощник будет переходить по списку адресов (ГИД). ${this._gidMove}`
+                    HelpPopup: `Данный помощник будет переходить по списку адресов (ГИД). ГИДы ${this._idMove}`
                 };
                 break;
 
             case "editAddress":
                 return {
                     Header: "Заявки по списку",
-                    HelpPopup: "Данный помощник будет переходить по списку заявок. Заявки перебираются по комбинации Ctrl+ Alt + Z или нажатием соответствующих кнопок управления"
+                    HelpPopup: `Данный помощник будет переходить по списку заявок. Заявки ${this._idMove}`,
+                    AutoExecute: "Автоматически подтвердить"
                 };
                 break;
 
             case "delAddress":
                 return {
                     Header: "Удалить по списку",
-                    HelpPopup: `Данный помощник будет удалять по списку адресов (ГИД). ${this._gidMove}`
+                    HelpPopup: `Данный помощник будет удалять по списку адресов (ГИД). ГИДы ${this._idMove}`,
+                    AutoExecute: "Автоматически удалить"
                 };
                 break;
 
             case "decomAddress":
                 return {
                     Header: "Удаленные по списку",
-                    HelpPopup: `Данный помощник будет переходить по списку удаленных домов (ГИДы). ${this._gidMove}`
+                    HelpPopup: `Данный помощник будет переходить по списку удаленных домов (ГИДы). ГИДы ${this._idMove}`,
+                    AutoExecute: "Автоматически восстановить"
                 };
                 break;
 
@@ -47,7 +50,7 @@ class FactoryTextModule {
             case "changeAddress":
                 return {
                     Header: "Редактировать по списку",
-                    HelpPopup: `Данный помощник будет редактировать по списку адресов (ГИД). ${this._gidMove}`
+                    HelpPopup: `Данный помощник будет редактировать по списку адресов (ГИД). ГИДы ${this._gidMove}`
                 };
                 break;
 

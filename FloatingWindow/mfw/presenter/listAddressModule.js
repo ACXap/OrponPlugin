@@ -24,6 +24,8 @@ class ListAddressModule extends ModuleFloatingWindow {
                     this._view.showAddressNotFound(d.addedNodes[0].innerText);
             }
         }
+
+        console.log(mut);
     });
 
     /**
@@ -73,6 +75,7 @@ class ListAddressModule extends ModuleFloatingWindow {
         this._observerCardAddress.observe(document.documentElement, { childList: true, subtree: true });
         this.onOpen(this.id);
     }
+
     _handlerCloseBody() {
         this._observerCardAddress.disconnect();
     }

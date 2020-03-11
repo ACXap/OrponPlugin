@@ -4,6 +4,8 @@ UI.AddEventListener("checkDadata", "click", CheckApiDadata);
 UI.AddEventListener("checkApiGeoCoder", "click", CheckApiGeoCoder);
 UI.AddEventListener("textBoxApiKeyGeoCoder", "mouseover", () => UI.OpenPassword("textBoxApiKeyGeoCoder"));
 UI.AddEventListener("textBoxApiKey", "mouseover", () => UI.OpenPassword("textBoxApiKey"));
+UI.AddEventListener("canUseGeoCoderUser", "click", () => UI.SetVisibilityElement("divGeoModule", UI.GetValueElement("canUseGeoCoderUser")));
+
 
 chrome.storage.local.get({
     apiKeyCheckFias: "",
@@ -28,6 +30,8 @@ chrome.storage.local.get({
         UI.SetValueElement("canUseFloatingWindow", items.canUseFloatingWindow);
         UI.SetValueElement("canUseImportModuleGeo", items.canUseImportModuleGeo);
         UI.SetValueElement("canNotSyncAdjacentSystem", items.canNotSyncAdjacentSystem);
+
+        UI.SetVisibilityElement("divGeoModule", UI.GetValueElement("canUseGeoCoderUser"));
     });
 
 function SaveOptions() {
@@ -51,6 +55,10 @@ function SaveOptions() {
             UI.SetVisibilityElement("save", true);
         }, 850);
     });
+}
+
+function CheckUseGeoCodModule() {
+    UI.SetVisibilityElement("divGeoModule", this.checked);
 }
 
 async function CheckApiGeoCoder() {

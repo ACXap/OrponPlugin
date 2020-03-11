@@ -221,6 +221,10 @@
   padding: 10px;
 }
 
+.divSectionBodyModuleNotPadding {
+  padding: 0px;
+}
+
 .nextElement {
   color: red;
   font-size: large;

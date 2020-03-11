@@ -75,7 +75,7 @@ class HFW {
             m = new ListAddressModule({
                 id: "editAddress",
                 model: new ModuleFloatingWindowModel(),
-                view: new ListAddressModuleView(html, factoryText.getTextModule("editAddress"))
+                view: new EditAddressModuleView(html, factoryText.getTextModule("editAddress"))
             });
             HFW.helpWindow.addModule(m, 5);
 
@@ -111,9 +111,20 @@ class HFW {
     }
 
     static _saveNewCoordinate(t, l) {
-        chrome.storage.local.set({
-            topFloatingWindow: t,
-            leftFloatingWindow: l
-        });
+        try {
+
+            if (chrome.app) {
+                chrome.storage.local.set({
+                    topFloatingWindow: t,
+                    leftFloatingWindow: l
+                });
+            }
+            else {
+                console.log("Требуется обновление страницы. Перезапуск расширения");
+            }
+
+        } catch (error) {
+            console.log(error);
+        }
     }
 }

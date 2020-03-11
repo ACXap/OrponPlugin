@@ -17,6 +17,11 @@ class ListAddressModuleView extends ModuleFloatingWindowView {
         this._elementHtml.querySelector("p.headerText").innerHTML = `<b>${text.Header}</b>`;
         this._elementHtml.querySelector("span.popuptext").innerHTML = text.HelpPopup;
 
+        // if (text.AutoExecute) {
+        //     this._elementHtml.querySelector("div.divSectionBodyModuleNotPadding").hidden = false;
+        //     this._elementHtml.querySelector("#autoExecuteLabel").innerHTML = text.AutoExecute + this._elementHtml.querySelector("#autoExecuteLabel").innerHTML;
+        // }
+
         // Пользователь загружает данные для модуля
         this._elementHtml.querySelector("a.loadData").onclick = () => {
             const input = document.createElement("input");
@@ -37,8 +42,13 @@ class ListAddressModuleView extends ModuleFloatingWindowView {
         };
         // Пользователь вставляет данные из буфера
         this._elementHtml.querySelector("a.clipboardData").onclick = async () => {
-            const t = await navigator.clipboard.readText();
-            this.onLoadData(t);
+            if (navigator.clipboard) {
+                const t = await navigator.clipboard.readText();
+                this.onLoadData(t);
+            }
+            else {
+                console.log("Доступ к буферу обмена запрещен!");
+            }
         }
         // Пользователь перемещается назад по данным
         this._elementHtml.querySelector("a.backwardData").onclick = () => {

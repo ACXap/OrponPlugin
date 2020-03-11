@@ -21,7 +21,8 @@
         "webRequest",
         "webRequestBlocking",
         "https://orpon-prod.rt.ru/orpon/*",
-        "https://api-maps.yandex.ru/*"
+        "https://api-maps.yandex.ru/*",
+        "http://10.42.78.140:18080/orpon/*"
     ],
     "background": {
         "scripts": [
@@ -33,7 +34,8 @@
     "content_scripts": [
         {
             "matches": [
-                "https://orpon-prod.rt.ru/orpon/*"
+                "https://orpon-prod.rt.ru/orpon/*",
+                "http://10.42.78.140:18080/orpon/*"
             ],
             "run_at": "document_end",
             "css": [
@@ -82,6 +84,7 @@
                 "FloatingWindow/mfw/view/syncListAddressModuleView.js",
                 "FloatingWindow/mfw/view/settingsModuleView.js",
                 "FloatingWindow/mfw/view/infoBdAddressModuleView.js",
+                "FloatingWindow/mfw/view/editAddressModuleView.js",
                 "app.js"
             ]
         }
