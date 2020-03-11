@@ -94,5 +94,9 @@ class ModuleFloatingWindowModel {
             this._setElement(false);
             return this.GetProperty();
         }
+
+        if (this._currentIndex === 0) {
+            return this.GetProperty();
+        }
     }
 }

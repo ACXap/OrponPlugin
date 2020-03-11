@@ -25,10 +25,17 @@ class MapTile {
     //     subdomains: ["a", "b", "c", "d"]
     // });
 
+    _here = L.tileLayer('https://{s}.base.maps.ls.hereapi.com/maptile/2.1/maptile/newest/normal.day/{z}/{x}/{y}/256/png8?apiKey=EXVYrj22JGZG2NN5OO9G9kwfLyyoWrywEEHtJn_8eEw&lg=rus&ppi=72&pview=RUS', {
+        maxZoom: 19,
+        maxNativeZoom: 19,
+        attribution: '&copy; <a href="https://here.com">Here</a>',
+        subdomains: ["1", "2", "3", "4"]
+    });
+
     _gis = L.tileLayer('https://{s}.maps.2gis.com/tiles?x={x}&y={y}&z={z}&v=46', {
         maxZoom: 18,
-        maxNativeZoom: 17,
-        attribution: '&copy; <a href="https://https://2gis.ru">2gis</a>',
+        maxNativeZoom: 16,
+        attribution: '&copy; <a href="https://2gis.ru">2gis</a>',
         subdomains: ["tile3", "tile1", "tile2"]
     });
 
@@ -37,7 +44,8 @@ class MapTile {
         "Google": this._google,
         "Google спутник": this._googleSat,
         //"Спутник": this._sputnik,
-        "2GIS": this._gis
+        "2GIS": this._gis,
+        "Here": this._here
     };
 
     GetBaseMaps() {

@@ -50,8 +50,11 @@ class ListAddressModule extends ModuleFloatingWindow {
     */
     _handlerBackData() {
         const data = this._model.GetPreviousElement();
-        data.href = this._factoryUrl.getHref(data.CurrentElement, this.id);
-        this._view.execute(data);
+
+        if (data) {
+            data.href = this._factoryUrl.getHref(data.CurrentElement, this.id);
+            this._view.execute(data);
+        }
     }
 
     /**
@@ -59,8 +62,11 @@ class ListAddressModule extends ModuleFloatingWindow {
     */
     _handlerForwardData() {
         const data = this._model.GetNextElement();
-        data.href = this._factoryUrl.getHref(data.CurrentElement, this.id);
-        this._view.execute(data);
+
+        if (data) {
+            data.href = this._factoryUrl.getHref(data.CurrentElement, this.id);
+            this._view.execute(data);
+        }
     }
 
     _handlerOpenBody() {

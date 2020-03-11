@@ -75,11 +75,13 @@
                 "FloatingWindow/mfw/presenter/copyAddressModule.js",
                 "FloatingWindow/mfw/presenter/listAddressModule.js",
                 "FloatingWindow/mfw/presenter/settingsModule.js",
+                "FloatingWindow/mfw/presenter/infoBdAddressModule.js",
                 "FloatingWindow/mfw/view/listAddressModuleView.js",
                 "FloatingWindow/mfw/view/copyAddressModuleView.js",
                 "FloatingWindow/mfw/view/copyHelpModuleView.js",
                 "FloatingWindow/mfw/view/syncListAddressModuleView.js",
                 "FloatingWindow/mfw/view/settingsModuleView.js",
+                "FloatingWindow/mfw/view/infoBdAddressModuleView.js",
                 "app.js"
             ]
         }

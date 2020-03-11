@@ -43,8 +43,6 @@ class HelperFloatingWindowView extends FloatingWindow {
      */
     addElement(html, index) {
         const b = this._elementHtml.querySelector("#helperFloatingWindowBody");
-        //b.appendChild(html);
-        console.log(b.children[index]);
         b.insertBefore(html, b.children[index]);
     }
 }

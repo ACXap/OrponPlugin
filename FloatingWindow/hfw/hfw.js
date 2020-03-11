@@ -90,6 +90,15 @@ class HFW {
             HFW.helpWindow.addModule(m, 6);
         });
 
+        // HFW._loadFile("FloatingWindow/modulesFloatingWindow/infoBdAddress.html", (html) => {
+        //     const m = new InfoBdAddressModule({
+        //         id: "infoBd",
+        //         model: null,
+        //         view: new InfoBdAddressModuleView(html)
+        //     });
+        //     HFW.helpWindow.addModule(m, 7);
+        // });
+
         HFW._loadFile("FloatingWindow/modulesFloatingWindow/settings.html", (html) => {
             const m = new SettingsModule({
                 id: "settings",
@@ -97,7 +106,7 @@ class HFW {
                 view: new SettingsModuleView(html),
                 set: HFW.set
             });
-            HFW.helpWindow.addModule(m, 7);
+            HFW.helpWindow.addModule(m, 8);
         });
     }
 
