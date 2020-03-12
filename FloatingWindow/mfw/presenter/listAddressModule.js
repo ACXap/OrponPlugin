@@ -25,7 +25,7 @@ class ListAddressModule extends ModuleFloatingWindow {
             }
         }
 
-        console.log(mut);
+        //console.log(mut);
     });
 
     /**

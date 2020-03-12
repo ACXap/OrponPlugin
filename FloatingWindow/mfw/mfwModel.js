@@ -18,8 +18,7 @@ class ModuleFloatingWindowModel {
      */
     constructor(data) {
 
-        this._data = data ? data.split("\n") : [];
-        this._initProperty();
+        this.SetData(data);
     }
 
     _initProperty() {
@@ -57,9 +56,14 @@ class ModuleFloatingWindowModel {
      * @param {*} data Список строк разделенных переносом строки
      */
     SetData(data) {
-        this._data = data.split("\n");
+        if (data) {
+            data.split("\n").forEach(element => {
+                if (element) {
+                    this._data.push(element.trim());
+                }
+            });
+        }
         this._initProperty();
-
         return this.GetProperty();
     }
 
