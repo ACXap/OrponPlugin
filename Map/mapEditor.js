@@ -6,6 +6,7 @@ class MapEditor {
     _inputAddress;
     _geoRepositoryYandex;
     _geoRepositoryHere;
+    _geoRepositoryOsm;
 
     _mapChange = false;
     _masterMarker;
@@ -18,6 +19,7 @@ class MapEditor {
     constructor(option) {
         this._geoRepositoryYandex = option.repYandex;
         this._geoRepositoryHere = option.repHere;
+        this._geoRepositoryOsm = option.repOsm;
         this._mapTile = option.mapTile;
     }
 
@@ -198,6 +200,7 @@ class MapEditor {
 
         this._geoCodingGeo("Yandex");
         this._geoCodingGeo("Here");
+        this._geoCodingGeo("Osm");
 
         //const geoCods = await this._geoRepository.GeoCodingDirect(this._inputAddress.value);
         // if (this._tableResult.innerHTML != "") {
@@ -220,6 +223,10 @@ class MapEditor {
 
         if (nameGeoCod == "Here") {
             geoCods = await this._geoRepositoryHere.GeoCodingDirect(this._inputAddress.value);
+        }
+
+        if (nameGeoCod == "Osm") {
+            geoCods = await this._geoRepositoryOsm.GeoCodingDirect(this._inputAddress.value);
         }
 
         for (let g of geoCods) {

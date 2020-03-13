@@ -74,6 +74,7 @@ chrome.storage.local.get(null, (result) => {
         mapEditor = new MapEditor({
             repYandex: new GeoCodYandex(settings.apiKeyGeoCoderYandex),
             repHere: new GeoCodHere(settings.apiKeyGeoCoderHere),
+            repOsm: new GeoCodOsm(),
             mapTile: new MapTile({ keyHere: settings.apiKeyGeoCoderHere })
         });
     }
