@@ -4,7 +4,8 @@ class MapEditor {
     _map;
     _tableResult;
     _inputAddress;
-    _geoRepository;
+    _geoRepositoryYandex;
+    _geoRepositoryHere;
 
     _mapChange = false;
     _masterMarker;
@@ -12,10 +13,12 @@ class MapEditor {
     _originalAddress;
     _originalCoordinate;
     _currentCoordinate;
-    _mapTile = new MapTile();
+    _mapTile;
 
     constructor(option) {
-        this._geoRepository = option.rep;
+        this._geoRepositoryYandex = option.repYandex;
+        this._geoRepositoryHere = option.repHere;
+        this._mapTile = option.mapTile;
     }
 
     Update() {
@@ -189,16 +192,45 @@ class MapEditor {
     async _geoCoding() {
         document.getElementById("progressGeoCoding").hidden = false;
 
-        const geoCods = await this._geoRepository.GeoCodingDirect(this._inputAddress.value);
         if (this._tableResult.innerHTML != "") {
             this._tableResult.innerHTML = "";
         }
+
+        this._geoCodingGeo("Yandex");
+        this._geoCodingGeo("Here");
+
+        //const geoCods = await this._geoRepository.GeoCodingDirect(this._inputAddress.value);
+        // if (this._tableResult.innerHTML != "") {
+        //     this._tableResult.innerHTML = "";
+        // }
+        // for (let g of geoCods) {
+        //     this._creatItemsForTableResult(g);
+        // }
+
+        // document.getElementById("progressGeoCoding").hidden = true;
+    }
+
+
+    async _geoCodingGeo(nameGeoCod) {
+        let geoCods;
+
+        if (nameGeoCod == "Yandex") {
+            geoCods = await this._geoRepositoryYandex.GeoCodingDirect(this._inputAddress.value);
+        }
+
+        if (nameGeoCod == "Here") {
+            geoCods = await this._geoRepositoryHere.GeoCodingDirect(this._inputAddress.value);
+        }
+
         for (let g of geoCods) {
             this._creatItemsForTableResult(g);
         }
 
         document.getElementById("progressGeoCoding").hidden = true;
+
     }
+
+
 
     _creatItemsForTableResult(geo) {
         const li = document.createElement("li");

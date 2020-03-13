@@ -65,19 +65,28 @@
             <label><input id="canUseImportModuleGeo" type="checkbox" />Использовать пользовательскую страницу импорта геоданных</label>
             <label><input id="canUseGeoCoderUser" type="checkbox" />Разрешить пользовательский модуль геокодирования</label>
         </div>
-        <div>
-            <div id="divGeoModule">
-                <label for="textBoxApiKeyGeoCoder" class="labelInputText">Ключ API геокодера</label>
-                <input id="textBoxApiKeyGeoCoder" type="password" placeholder="Введите ключ доступа к API" class="inputApiKey" />
-                <button id="checkApiGeoCoder">Тест</button>
-                <h3 id="statusCheckApiGeoCoder" class="divStatusCheck"></h3>
+        <div id="divGeoModule">
+            <div>
+                <label for="textBoxApiKeyGeoCoderYandex" class="labelInputText">Ключ API геокодера Yandex</label>
+                <input id="textBoxApiKeyGeoCoderYandex" type="password" placeholder="Введите ключ доступа к API" class="inputApiKey" />
+                <button id="checkApiGeoCoderYandex">Тест</button>
+                <h3 id="statusCheckApiGeoCoderYandex" class="divStatusCheck"></h3>
+            </div>
+
+            <div>
+                <label for="textBoxApiKeyGeoCoderHere" class="labelInputText">Ключ API геокодера Here</label>
+                <input id="textBoxApiKeyGeoCoderHere" type="password" placeholder="Введите ключ доступа к API" class="inputApiKey" />
+                <button id="checkApiGeoCoderHere">Тест</button>
+                <h3 id="statusCheckApiGeoCoderHere" class="divStatusCheck"></h3>
             </div>
         </div>
 
         <h3 id="status"></h3><button id="save" style="margin:50px">Сохранить</button>
     </div>
     <script src="../helpers/ui.js"></script>
-    <script src="../helpers/geoCodRepository.js"></script>
+    <script src="../helpers/GeoCoders/geoCodRepository.js"></script>
+    <script src="../helpers/GeoCoders/geoCodYandex.js"></script>
+    <script src="../helpers/GeoCoders/geoCodHere.js"></script>
     <script src="../helpers/dadataRepository.js"></script>
     <script src="options.js"></script>
 </body>

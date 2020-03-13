@@ -3,6 +3,8 @@
 class ListAddressModule extends ModuleFloatingWindow {
     _factoryUrl;
 
+    //_countObserverMut = 0;
+
     constructor(option) {
         super(option);
 
@@ -26,6 +28,14 @@ class ListAddressModule extends ModuleFloatingWindow {
         }
 
         //console.log(mut);
+
+        // if (mut.length > 2) {
+        //     this._countObserverMut++;
+        // }
+
+        // if (this._countObserverMut >= 3) {
+        //     console.log("Можно пробовать выполнять");
+        // }
     });
 
     /**
@@ -33,6 +43,8 @@ class ListAddressModule extends ModuleFloatingWindow {
      * @param {*} data 
      */
     _handlerLoadData(data) {
+        this._countObserverMut = 0;
+
         // Если строка, то передаем в модель
         if (typeof data === "string") {
             this._view.update(this._model.SetData(data));
@@ -51,6 +63,8 @@ class ListAddressModule extends ModuleFloatingWindow {
     * Метод-обработчик события получения предыдущего значения из коллекции данных
     */
     _handlerBackData() {
+        this._countObserverMut = 0;
+
         const data = this._model.GetPreviousElement();
 
         if (data) {
@@ -63,6 +77,8 @@ class ListAddressModule extends ModuleFloatingWindow {
     * Метод-обработчик события получения следующего значения из коллекции данных
     */
     _handlerForwardData() {
+        this._countObserverMut = 0;
+
         const data = this._model.GetNextElement();
 
         if (data) {

@@ -6,7 +6,7 @@ class AddressAttributeId extends AddressAttribute {
 
     Update() {
         const divs = document.querySelectorAll("div.col-lg-8.col-md-8.col-sm-6.col-xs-12");
-        if (divs.length > 0 && !isNaN(divs[0].innerText)) { ////////////Тут косяк
+        if (divs.length > 0 && !isNaN(divs[0].innerText)) { ////////////Тут косяк, бывает красит на другой странице уже
             divs[0].parentElement.style.cssText = "color:Blue;display:block";
         }
     }

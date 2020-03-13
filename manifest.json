@@ -43,7 +43,10 @@
                 "css/leaflet.css"
             ],
             "js": [
-                "Helpers/geoCodRepository.js",
+                "Helpers/GeoCoders/geoCodRepository.js",
+                "Helpers/GeoCoders/geoCodYandex.js",
+                "Helpers/GeoCoders/geoCodHere.js",
+                "Helpers/GeoCoders/geoCodOsm.js",
                 "Helpers/dadataRepository.js",
                 "Helpers/syncAdjacentSystem.js",
                 "Helpers/ImportModuleGeo.js",

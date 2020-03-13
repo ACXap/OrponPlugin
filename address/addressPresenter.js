@@ -46,7 +46,7 @@ class AddressPresenter {
 
     Update() {
         const divs = document.querySelectorAll("div.col-lg-8.col-md-8.col-sm-6.col-xs-12");
-        if (divs.length > 0) {
+        if (divs.length > 1) {
             const id = divs[1].innerText;
             if (this._globalid != id) {
                 this._globalid = id;

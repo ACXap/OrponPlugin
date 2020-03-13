@@ -2,9 +2,13 @@
 class Map {
     _elementHtml;
     _map;
-    _mapTile = new MapTile();
+    _mapTile;
 
     _handlerClickBody = this._closeMap.bind(this);
+
+    constructor(option) {
+        this._mapTile = option;
+    }
 
     OpenMap(attribute) {
         if (this._elementHtml == null) {

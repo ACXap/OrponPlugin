@@ -1,39 +1,14 @@
 "use strict";
 
-class ResultGeoCod {
-    address;
-    latitude;
-    longitude;
-    kind;
-    precision;
-    constructor(address, latitude, longitude, kind, precision) {
-        this.address = address;
-        this.latitude = latitude;
-        this.longitude = longitude;
-        this.kind = kind;
-        this.precision = precision;
-    }
-}
-
-/** GeoCodRepository класс работы с геокодером */
-class GeoCodRepository {
+class GeoCodYandex extends GeoCodRepository {
     /** @private Api-key геокодера */
     _key;
     /** @private Url геокодера */
     _urlGeocoding = "https://geocode-maps.yandex.ru/1.x/?format=json&geocode=";
 
     constructor(key) {
+        super();
         this._key = key;
-    }
-
-    /** Прямое геокодирование адреса
-    * @param {string} address Адрес для геокодирования
-    * @return {Promise<ResultGeoCod[]>} Возвращает промис с результатом геокодирования
-    */
-    async GeoCodingDirect(address) {
-        const response = await fetch(`${this._urlGeocoding}${address}&apikey=${this._key}`);
-
-        return await this._responseToResultGeoCod(response);
     }
 
     /** Обратное геокодирование адреса
@@ -72,14 +47,5 @@ class GeoCodRepository {
         }
 
         return geoCods;
-    }
-
-    /** Проверка работоспособности геокодера, если true - то все хорошо
-     * @return Promise<boolean> Возвращает Promise<boolean>
-     */
-    async CheckGeoCoder() {
-        const geoCods = await this.GeoCodingDirect("г Новосибирск, ул Орджоникидзе, д 18");
-
-        return (geoCods != null && geoCods.length > 0) ? true : false;
     }
 }

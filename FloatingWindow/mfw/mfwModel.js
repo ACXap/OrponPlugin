@@ -3,7 +3,7 @@
  * Класс отвечающий за модель модулей по работе с данными из списков
  */
 class ModuleFloatingWindowModel {
-    _data = [];
+    _data;
     _countElement = 0;
     _countLeftElement = 0;
     _nextElement = "";
@@ -56,6 +56,8 @@ class ModuleFloatingWindowModel {
      * @param {*} data Список строк разделенных переносом строки
      */
     SetData(data) {
+        this._data = [];
+
         if (data) {
             data.split("\n").forEach(element => {
                 if (element) {
