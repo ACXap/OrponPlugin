@@ -237,8 +237,6 @@ class MapEditor {
 
     }
 
-
-
     _creatItemsForTableResult(geo) {
         const li = document.createElement("li");
         const a = document.createElement("a");
@@ -290,7 +288,7 @@ class MapEditor {
 
     async _setAddressCurrentMarker(coordinate) {
         this._currentMarker.bindPopup("Поиск...");
-        const geo = await this._geoRepository.GeoCodingBack(coordinate.latitude, coordinate.longitude);
+        const geo = await this._geoRepositoryYandex.GeoCodingBack(coordinate.latitude, coordinate.longitude);
         if (geo != null && geo.length > 0) {
             this._currentMarker.bindPopup(geo[0].address).openPopup();
         }

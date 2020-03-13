@@ -19,17 +19,23 @@ class MapTile {
         subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
     });
 
-    // _sputnik = L.tileLayer('https://{s}.tilessputnik.ru/tiles/kmt2/{z}/{x}/{y}.png', {
-    //     maxZoom: 19,
-    //     attribution: '&copy; <a href="http://maps.sputnik.ru">Sputnik</a>',
-    //     subdomains: ["a", "b", "c", "d"]
-    // });
+    _sputnik = L.tileLayer('https://{s}.tilessputnik.ru/tiles/kmt2/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="http://maps.sputnik.ru">Sputnik</a>',
+        subdomains: ["a", "b", "c", "d"]
+    });
 
     _gis = L.tileLayer('https://{s}.maps.2gis.com/tiles?x={x}&y={y}&z={z}&v=46', {
         maxZoom: 18,
         maxNativeZoom: 16,
         attribution: '&copy; <a href="https://2gis.ru">2gis</a>',
         subdomains: ["tile3", "tile1", "tile2"]
+    });
+
+    _wiki = L.tileLayer('https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png', {
+        maxZoom: 18,
+        maxNativeZoom: 16,
+        attribution: '&copy; <a href="https://wikimedia.org">Wikimedia</a>'
     });
 
     constructor(option) {
@@ -45,9 +51,10 @@ class MapTile {
             "OSM": this._osm,
             "Google": this._google,
             "Google спутник": this._googleSat,
-            //"Спутник": this._sputnik,
             "2GIS": this._gis,
-            "Here": this._here
+            "Here": this._here,
+            "Спутник": this._sputnik,
+            "Вики": this._wiki
         };
     }
 
