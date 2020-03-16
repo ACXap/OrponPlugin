@@ -62,19 +62,19 @@ class DadataRepository {
         return this.resultToAddress(result);
     }
 
-    async GetResultAddressByFias(fias) {
+    async GetAddressByFias(fias) {
         const result = await this.getResultRequest(this._urlRequestFindFias, fias);
 
         return this.resultToAddress(result);
     }
 
-    async GetResultAddressByFiasSimple(fias) {
+    async GetCollectionAddressShotInfoByFias(fias) {
         const result = await this.getResultRequest(this._urlRequestFindFias, fias);
 
         return this.resultToAddressSimple(result);
     }
 
-    async GetResultAddressByAddressSimple(address) {
+    async GetCollectionAddressShotInfoByAddress(address) {
         let result = await this.getResultRequest(this._urlRequestFindAddress, address);
 
         return this.resultToAddressSimple(result);
@@ -154,7 +154,7 @@ class DadataRepository {
     }
 
     async CheckDadata() {
-        let res = await this.GetResultAddressByAddressSimple("г Новосибирск, ул Орджоникидзе, д 18");
+        const res = await this.GetCollectionAddressShotInfoByAddress("г Новосибирск, ул Орджоникидзе, д 18");
 
         return (res != null && res.length > 0) ? true : false
     }

@@ -66,16 +66,15 @@ chrome.storage.local.get(null, (result) => {
     }
 
     if (settings.canUseGeoCoderUser) {
-        map = new Map({
-            mapTile: new MapTile({
-                keyHere: settings.apiKeyGeoCoderHere
-            })
-        });
+        const mapTile = new MapTile({ keyHere: settings.apiKeyGeoCoderHere });
+
+        map = new Map(mapTile);
+
         mapEditor = new MapEditor({
             repYandex: new GeoCodYandex(settings.apiKeyGeoCoderYandex),
             repHere: new GeoCodHere(settings.apiKeyGeoCoderHere),
             repOsm: new GeoCodOsm(),
-            mapTile: new MapTile({ keyHere: settings.apiKeyGeoCoderHere })
+            mapTile: mapTile
         });
     }
 

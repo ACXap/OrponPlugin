@@ -213,7 +213,6 @@ class MapEditor {
         // document.getElementById("progressGeoCoding").hidden = true;
     }
 
-
     async _geoCodingGeo(nameGeoCod) {
         let geoCods;
 

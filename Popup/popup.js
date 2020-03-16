@@ -27,7 +27,7 @@ async function FindAsync() {
     UI.SetVisibilityElement("progressBarFindAddress");
     UI.SetVisibilityElement("selectedAddressTable", false);
 
-    const address = await dadataRepository.GetResultAddressByAddressSimple(UI.GetValueElement("textBoxFindAddress"));
+    const address = await dadataRepository.GetCollectionAddressShotInfoByAddress(UI.GetValueElement("textBoxFindAddress"));
 
     if (address != null && address.length > 0) {
         UI.SetVisibilityElement("resultFindAddress", false);
@@ -61,8 +61,11 @@ async function CheckAsync() {
 
     UI.SetVisibilityElement("progressBarCheckFias");
 
-    const address = await dadataRepository.GetResultAddressByFiasSimple(UI.GetValueElement("textBoxFias"));
-    const adr = (address != null && address.length > 0) ? address[0].address : ADDRESS_NOT_FOUND;
+    let adr;
+
+    const address = await dadataRepository.GetCollectionAddressShotInfoByFias(UI.GetValueElement("textBoxFias"));
+    adr = (address != null && address.length > 0) ? address[0].address : ADDRESS_NOT_FOUND;
+
     UI.SetInnerTextElement("resultCheck", adr);
 
     UI.SetVisibilityElement("progressBarCheckFias", false);

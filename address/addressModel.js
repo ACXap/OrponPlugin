@@ -7,13 +7,11 @@ class AddressModel {
     }
 
     async CheckFias(fias) {
-        //console.log("Проверка фиас");
-        const adr = await this._dadataRepository.GetResultAddressByFias(fias);
+        const adr = await this._dadataRepository.GetAddressByFias(fias);
         return adr;
     }
 
     async CheckAddress(address) {
-        //console.log("Проверка адреса");
         const adr = await this._dadataRepository.GetResultAddressByAddress(address);
         return adr;
     }

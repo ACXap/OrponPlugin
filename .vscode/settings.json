@@ -1,17 +1,18 @@
 {
-    "cSpell.ignoreWords": [
-        "dadata",
-        "fias",
-        "globalid",
-        "kladr",
-        "okato",
-        "oktmo",
-        "геокодера",
-        "геокодирования",
-        "кладр",
-        "окато",
-        "октмо",
-        "орпон",
-        "фиас"
-    ]
+  "cSpell.ignoreWords": [
+    "dadata",
+    "fias",
+    "globalid",
+    "kladr",
+    "okato",
+    "oktmo",
+    "геокодера",
+    "геокодирования",
+    "кладр",
+    "окато",
+    "октмо",
+    "орпон",
+    "фиас",
+    "orpon"
+  ]
 }

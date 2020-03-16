@@ -4,7 +4,7 @@ class GeoCodOsm extends GeoCodRepository {
 
     /** @private Url геокодера */
     _urlGeocoding = "https://nominatim.openstreetmap.org/search?q=";
-    _urlGeocodingLastChar = "&format=json&limit=5";
+    _urlGeocodingLastChar = "&format=json&limit=5&countrycodes=ru";
 
     constructor() {
         super();
