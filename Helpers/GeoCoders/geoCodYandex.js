@@ -40,7 +40,7 @@ class GeoCodYandex extends GeoCodRepository {
                 const lng = point[0];
                 const kind = geo.GeoObject.metaDataProperty.GeocoderMetaData.kind;
                 const precision = geo.GeoObject.metaDataProperty.GeocoderMetaData.precision;
-                const geoCod = new ResultGeoCod(adr, lat, lng, kind, precision);
+                const geoCod = new ResultGeoCod(adr, lat, lng, kind, precision, "Yandex");
 
                 geoCods.push(geoCod);
             }

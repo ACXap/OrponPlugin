@@ -50,7 +50,7 @@ class FactoryTextModule {
             case "changeAddress":
                 return {
                     Header: "Редактировать по списку",
-                    HelpPopup: `Данный помощник будет редактировать по списку адресов (ГИД). ГИДы ${this._gidMove}`
+                    HelpPopup: `Данный помощник будет редактировать по списку адресов (ГИД). ГИДы ${this._idMove}`
                 };
                 break;
 

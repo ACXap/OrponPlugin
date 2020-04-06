@@ -32,11 +32,11 @@ class MapTile {
         subdomains: ["tile3", "tile1", "tile2"]
     });
 
-    _wiki = L.tileLayer('https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png', {
-        maxZoom: 18,
-        maxNativeZoom: 16,
-        attribution: '&copy; <a href="https://wikimedia.org">Wikimedia</a>'
-    });
+    // _wiki = L.tileLayer('https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png', {
+    //     maxZoom: 18,
+    //     maxNativeZoom: 16,
+    //     attribution: '&copy; <a href="https://wikimedia.org">Wikimedia</a>'
+    // });
 
     constructor(option) {
 
@@ -53,8 +53,8 @@ class MapTile {
             "Google спутник": this._googleSat,
             "2GIS": this._gis,
             "Here": this._here,
-            "Спутник": this._sputnik,
-            "Вики": this._wiki
+            "Спутник": this._sputnik
+            // "Вики": this._wiki
         };
     }
 

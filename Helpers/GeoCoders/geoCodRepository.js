@@ -6,12 +6,14 @@ class ResultGeoCod {
     longitude;
     kind;
     precision;
-    constructor(address, latitude, longitude, kind, precision) {
+    geocoder;
+    constructor(address, latitude, longitude, kind, precision, geocoder) {
         this.address = address;
         this.latitude = latitude;
         this.longitude = longitude;
         this.kind = kind;
         this.precision = precision;
+        this.geocoder = geocoder;
     }
 }
 

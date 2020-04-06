@@ -19,14 +19,14 @@ class GeoCodHere extends GeoCodRepository {
         const geoCods = [];
         const result = await response.json();
 
-        if (result && result.Response && result.Response.View) {
+        if (result && result.Response && result.Response.View && result.Response.View.length > 0) {
             for (const geo of result.Response.View[0].Result) {
                 const adr = geo.Location.Address.Label;
                 const lat = geo.Location.DisplayPosition.Latitude;
                 const lng = geo.Location.DisplayPosition.Longitude;
                 const kind = geo.MatchLevel;
                 const precision = geo.Relevance > 0.9 ? "exact" : "may be";
-                const geoCod = new ResultGeoCod(adr, lat, lng, kind, precision);
+                const geoCod = new ResultGeoCod(adr, lat, lng, kind, precision, "Here");
 
                 geoCods.push(geoCod);
             }

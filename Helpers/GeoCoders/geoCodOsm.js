@@ -37,7 +37,7 @@ class GeoCodOsm extends GeoCodRepository {
                 const lng = geo.lon;
                 const kind = geo.type;
                 const precision = geo.importance > 0.9 ? "exact" : "may be";
-                const geoCod = new ResultGeoCod(adr, lat, lng, kind, precision);
+                const geoCod = new ResultGeoCod(adr, lat, lng, kind, precision, "Osm");
 
                 geoCods.push(geoCod);
             }

@@ -238,6 +238,17 @@ class MapEditor {
 
     _creatItemsForTableResult(geo) {
         const li = document.createElement("li");
+
+        if (geo.geocoder == "Yandex") {
+            li.classList.add("geocoderYellow");
+        }
+        if (geo.geocoder == "Osm") {
+            li.classList.add("geocoderBlue");
+        }
+        if (geo.geocoder == "Here") {
+            li.classList.add("geocoderGreen");
+        }
+
         const a = document.createElement("a");
         a.innerText = geo.address;
         a.style.cursor = "pointer";
@@ -273,8 +284,10 @@ class MapEditor {
         this._setViewMap(coordinate);
 
         const inputLatLng = this._divMap.parentElement.querySelectorAll("input.orpon-input");
-        inputLatLng[0].value = coordinate.latitude;
-        inputLatLng[1].value = coordinate.longitude;
+        const lat = +coordinate.latitude;
+        const lon = +coordinate.longitude;
+        inputLatLng[0].value = lat.toFixed(5);//isNaN(coordinate.latitude) ? coordinate.latitude.toFixed(5) : coordinate.latitude;
+        inputLatLng[1].value = lon.toFixed(5);//isNaN(coordinate.longitude) ? coordinate.longitude.toFixed(5) : coordinate.longitude;
         const ev = new KeyboardEvent("keyup", { view: window, keyCode: 13, bubbles: true, cancelable: true });
         inputLatLng[0].dispatchEvent(ev);
 

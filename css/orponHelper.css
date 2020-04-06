@@ -261,7 +261,7 @@
 #mapHelperOrpon {
   height: 600px;
   width: 98%;
-  margin: 10px;
+  margin: 5px;
 }
 
 .rootMapDivHelperOpen {
@@ -272,4 +272,20 @@
 .lbMap {
   margin-left: auto;
   margin-right: 5px;
+}
+
+.geocoderRed {
+  background-color: rgb(226, 64, 36);
+}
+
+.geocoderGreen {
+  background-color: rgb(28, 155, 85);
+}
+
+.geocoderBlue {
+  background-color: rgb(162, 161, 214);
+}
+
+.geocoderYellow {
+  background-color: rgb(209, 231, 12);
 }
