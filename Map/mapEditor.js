@@ -233,7 +233,6 @@ class MapEditor {
         }
 
         document.getElementById("progressGeoCoding").hidden = true;
-
     }
 
     _creatItemsForTableResult(geo) {
@@ -252,6 +251,7 @@ class MapEditor {
         const a = document.createElement("a");
         a.innerText = geo.address;
         a.style.cursor = "pointer";
+        a.style.color = "black";
         a.addEventListener("click", () => {
             const quality = geo.precision == "exact" ? 1 : 2;
             const zoom = quality == 1 ? 18 : 16

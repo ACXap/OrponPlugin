@@ -21,7 +21,8 @@ chrome.storage.local.get({
     apiKeyGeoCoderHere: "",
     canUseFloatingWindow: false,
     canUseImportModuleGeo: false,
-    canNotSyncAdjacentSystem: false
+    canNotSyncAdjacentSystem: false,
+    canForwardDataAfterLoadData: false
 },
     (items) => {
         UI.SetValueElement("textBoxApiKey", items.apiKeyCheckFias);
@@ -35,6 +36,7 @@ chrome.storage.local.get({
         UI.SetValueElement("canUseFloatingWindow", items.canUseFloatingWindow);
         UI.SetValueElement("canUseImportModuleGeo", items.canUseImportModuleGeo);
         UI.SetValueElement("canNotSyncAdjacentSystem", items.canNotSyncAdjacentSystem);
+        UI.SetValueElement("canForwardDataAfterLoadData", items.canForwardDataAfterLoadData);
 
         UI.SetVisibilityElement("divGeoModule", UI.GetValueElement("canUseGeoCoderUser"));
     });
@@ -51,7 +53,8 @@ function SaveOptions() {
         apiKeyGeoCoderHere: UI.GetValueElement("textBoxApiKeyGeoCoderHere"),
         canUseFloatingWindow: UI.GetValueElement("canUseFloatingWindow"),
         canUseImportModuleGeo: UI.GetValueElement("canUseImportModuleGeo"),
-        canNotSyncAdjacentSystem: UI.GetValueElement("canNotSyncAdjacentSystem")
+        canNotSyncAdjacentSystem: UI.GetValueElement("canNotSyncAdjacentSystem"),
+        canForwardDataAfterLoadData: UI.GetValueElement("canForwardDataAfterLoadData")
     }, () => {
         UI.SetVisibilityElement("save", false);
         UI.SetTextContent("status", "Настройки сохранены!");

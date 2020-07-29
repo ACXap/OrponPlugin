@@ -1,14 +1,15 @@
 "use strict";
 
 class ListAddressModule extends ModuleFloatingWindow {
-    _factoryUrl;
+    _factoryUrl = new FactoryUrlAddressModule();
+    _canForwardDataAfterLoadData = false;
 
     //_countObserverMut = 0;
 
     constructor(option) {
         super(option);
 
-        this._factoryUrl = new FactoryUrlAddressModule();
+        this._canForwardDataAfterLoadData = option.canForwardDataAfterLoadData;
 
         // Подпись на событие получения данных вью
         this._view.onLoadData = this._handlerLoadData.bind(this);
@@ -26,16 +27,6 @@ class ListAddressModule extends ModuleFloatingWindow {
                     this._view.showAddressNotFound(d.addedNodes[0].innerText);
             }
         }
-
-        //console.log(mut);
-
-        // if (mut.length > 2) {
-        //     this._countObserverMut++;
-        // }
-
-        // if (this._countObserverMut >= 3) {
-        //     console.log("Можно пробовать выполнять");
-        // }
     });
 
     /**
@@ -48,6 +39,7 @@ class ListAddressModule extends ModuleFloatingWindow {
         // Если строка, то передаем в модель
         if (typeof data === "string") {
             this._view.update(this._model.SetData(data));
+            if (this._canForwardDataAfterLoadData) this._handlerForwardData();
         }
         // Если файл, то считываем данные и передаем в модель
         else {
@@ -55,6 +47,7 @@ class ListAddressModule extends ModuleFloatingWindow {
             reader.readAsText(data, "UTF-8");
             reader.onload = readerEvent => {
                 this._view.update(this._model.SetData(readerEvent.target.result));
+                if (this._canForwardDataAfterLoadData) this._handlerForwardData();
             }
         }
     }

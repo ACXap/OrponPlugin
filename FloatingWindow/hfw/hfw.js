@@ -47,7 +47,8 @@ class HFW {
             m = new ListAddressModule({
                 id: "listAddress",
                 model: new ModuleFloatingWindowModel(),
-                view: new ListAddressModuleView(html, factoryText.getTextModule("listAddress"))
+                view: new ListAddressModuleView(html, factoryText.getTextModule("listAddress")),
+                canForwardDataAfterLoadData: HFW.set.canForwardDataAfterLoadData
             });
             HFW.helpWindow.addModule(m, 1);
 
@@ -78,7 +79,15 @@ class HFW {
                 view: new EditAddressModuleView(html, factoryText.getTextModule("editAddress"))
             });
             HFW.helpWindow.addModule(m, 5);
+        });
 
+        HFW._loadFile("FloatingWindow/modulesFloatingWindow/foundAddress.html", (html) => {
+            const m = new FoundAddressModule({
+                id: "foundAddress",
+                model: new ModuleFloatingWindowModel(),
+                view: new FoundAddressModuleView(html, factoryText.getTextModule("foundAddress"))
+            });
+            HFW.helpWindow.addModule(m, 6);
         });
 
         HFW._loadFile("FloatingWindow/modulesFloatingWindow/copyAddress.html", (html) => {
@@ -87,7 +96,7 @@ class HFW {
                 model: null,
                 view: new CopyAddressModuleView(html)
             });
-            HFW.helpWindow.addModule(m, 6);
+            HFW.helpWindow.addModule(m, 7);
         });
 
         // HFW._loadFile("FloatingWindow/modulesFloatingWindow/infoBdAddress.html", (html) => {
@@ -96,7 +105,7 @@ class HFW {
         //         model: null,
         //         view: new InfoBdAddressModuleView(html)
         //     });
-        //     HFW.helpWindow.addModule(m, 7);
+        //     HFW.helpWindow.addModule(m, 9);
         // });
 
         HFW._loadFile("FloatingWindow/modulesFloatingWindow/settings.html", (html) => {

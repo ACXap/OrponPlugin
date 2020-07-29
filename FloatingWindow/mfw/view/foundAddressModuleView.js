@@ -1,9 +1,8 @@
 "use strict";
 
-class ListAddressModuleView extends ModuleFloatingWindowView {
+class FoundAddressModuleView extends ModuleFloatingWindowView {
     _inputFocus;
     _elementOpenPage = document.createElement("a");
-    _checkGuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-5][0-9a-f]{3}-[089ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 
     /** @public Событие загрузки данных в модуль */
     onLoadData;
@@ -11,17 +10,14 @@ class ListAddressModuleView extends ModuleFloatingWindowView {
     onBack;
     /** @public Событие получения следующего значения из данных */
     onForward;
+    /** @public Событие сохранения файла */
+    onSave;
 
     constructor(option, text) {
         super(option);
 
         this._elementHtml.querySelector("p.headerText").innerHTML = `<b>${text.Header}</b>`;
         this._elementHtml.querySelector("span.popuptext").innerHTML = text.HelpPopup;
-
-        // if (text.AutoExecute) {
-        //     this._elementHtml.querySelector("div.divSectionBodyModuleNotPadding").hidden = false;
-        //     this._elementHtml.querySelector("#autoExecuteLabel").innerHTML = text.AutoExecute + this._elementHtml.querySelector("#autoExecuteLabel").innerHTML;
-        // }
 
         // Пользователь загружает данные для модуля
         this._elementHtml.querySelector("a.loadData").onclick = () => {
@@ -61,6 +57,10 @@ class ListAddressModuleView extends ModuleFloatingWindowView {
             this._inputFocus = document.activeElement;
             this.onForward();
         };
+        // Пользователь перемещается вперед по данным
+        this._elementHtml.querySelector("a.buttonSave").onclick = () => {
+            this.onSave();
+        };
     }
 
     /**
@@ -69,8 +69,7 @@ class ListAddressModuleView extends ModuleFloatingWindowView {
      */
     execute(data) {
         if (data) {
-
-            if ((!isNaN(data.CurrentElement) || this._checkGuid.test("" + data.CurrentElement)) && data.CurrentElement != "") {
+            if (data.CurrentElement) {
                 this._elementOpenPage.href = data.href;
                 this._elementOpenPage.click();
             }

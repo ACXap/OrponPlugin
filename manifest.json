@@ -43,6 +43,7 @@
                 "css/leaflet.css"
             ],
             "js": [
+                "Helpers/fileService.js",
                 "Helpers/GeoCoders/geoCodRepository.js",
                 "Helpers/GeoCoders/geoCodYandex.js",
                 "Helpers/GeoCoders/geoCodHere.js",
@@ -81,6 +82,7 @@
                 "FloatingWindow/mfw/presenter/listAddressModule.js",
                 "FloatingWindow/mfw/presenter/settingsModule.js",
                 "FloatingWindow/mfw/presenter/infoBdAddressModule.js",
+                "FloatingWindow/mfw/presenter/foundAddressModule.js",
                 "FloatingWindow/mfw/view/listAddressModuleView.js",
                 "FloatingWindow/mfw/view/copyAddressModuleView.js",
                 "FloatingWindow/mfw/view/copyHelpModuleView.js",
@@ -88,6 +90,7 @@
                 "FloatingWindow/mfw/view/settingsModuleView.js",
                 "FloatingWindow/mfw/view/infoBdAddressModuleView.js",
                 "FloatingWindow/mfw/view/editAddressModuleView.js",
+                "FloatingWindow/mfw/view/foundAddressModuleView.js",
                 "app.js"
             ]
         }
