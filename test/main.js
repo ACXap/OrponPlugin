@@ -1,4 +1,4 @@
-var module1 = '<section class="sectionHeader">    <p class="headerText noneSelect"><b>Помощь в копировании</b></p>    <i class="openHelp fa fa-question"></i>    <div class="popup">        <span class="popuptext">Данный помощник будет вставлять поочередно данные из вашего списка.            Данные вставляются в выбранное поле по комбинации Ctrl+Alt+Z</span>    </div></section><section class="bodyHelper">    <div class="divSectionBodyModule">        <a title="Формат данных: Данные в 1 столбец" class="loadData data-field-link noneSelect">Загрузить список</a>        /        <a title="Формат данных: Данные в 1 столбец" class="clipboardData data-field-link noneSelect">Из буфера</a>    </div>    <div class="divSectionBodyModule">        <a title="Выбрать предыдущий элемент" class="backwardData buttonHelperWindow">            <i style="color:black" class="fa fa-step-backward"></i></a>        <a title="Следующий элемент" class="forwardData buttonHelperWindow">            <i style="color:black;" class="fa fa-step-forward"></i></a>    </div>    <div class="divSectionBodyModule">        Всего элементов: <span class="countElement">0</span>        <br>Осталось: <span class="countLeftElement">0</span>        <br>Следующий элемент: <span class="nextElement"></span>    </div></section>';
+var module1 = `<section class="sectionHeader">    <p class="headerText noneSelect"><b>Помощь в копировании</b></p>    <i class="openHelp fa fa-question"></i>    <div class="popup">        <span class="popuptext">Данный помощник будет вставлять поочередно данные из вашего списка.            Данные вставляются в выбранное поле по комбинации Ctrl+Alt+Z</span>    </div></section><section class="bodyHelper">    <div class="divSectionBodyModule">        <a title="Формат данных: Данные в 1 столбец" class="loadData data-field-link noneSelect">Загрузить список</a>        /        <a title="Формат данных: Данные в 1 столбец" class="clipboardData data-field-link noneSelect">Из буфера</a>    </div>    <div class="divSectionBodyModule">        <a title="Выбрать предыдущий элемент" class="backwardData buttonHelperWindow">            <i style="color:black" class="fa fa-step-backward"></i></a>        <a title="Следующий элемент" class="forwardData buttonHelperWindow">            <i style="color:black;" class="fa fa-step-forward"></i></a>    </div>    <div class="divSectionBodyModule">        Всего элементов: <span class="countElement">0</span>        <br>Осталось: <span class="countLeftElement">0</span>        <br>Следующий элемент: <span class="nextElement"></span>    </div></section>`;
 var module2 = '<section class="sectionHeader">    <p class="headerText noneSelect"><b>Адреса по списку</b></p>    <i class="openHelp fa fa-question"></i>    <div class="popup">        <span class="popuptext">Данный помощник будет переходить по списку адресов (ГИД).            ГИДы перебираются по комбинации Ctrl+Alt+Z или нажатием соответствующих кнопок управления</span>    </div></section><section class="bodyHelper">    <div class="divSectionBodyModule">        <a title="Формат данных: Данные ГИДы в 1 столбец" class="loadData data-field-link noneSelect">Загрузить список</a>        /        <a title="Формат данных: Данные в 1 столбец" class="clipboardData data-field-link noneSelect">Из буфера</a>    </div>    <div class="divSectionBodyModule">        <a title="Предыдущий элемент" class="backwardData buttonHelperWindow">            <i style="color:black" class="fa fa-step-backward"></i></a>        <a title="Следующий элемент" class="forwardData buttonHelperWindow">            <i style="color:black;" class="fa fa-step-forward"></i></a>    </div>    <div class="divSectionBodyModule">        Всего элементов: <span class="countElement">0</span>        <br>Осталось: <span class="countLeftElement">0</span>        <br>Следующий элемент: <span class="nextElement"></span>    </div></section>';
 var module3 = '<section class="sectionHeader">    <i title="Не запущено" class="fa fa-circle fa-fw statusIcon"></i>    <p class="headerText noneSelect"><b>Синхронизация списка адресов</b></p>    <i class="openHelp fa fa-question"></i>    <div class="popup">        <span class="popuptext">Данный помощник будет синхронизировать адреса (ГИДы) по списку с выбранной            системой. Система указывается или в данных: "ГИД;Система" или на странице адреса при запуске помощника.</span>    </div></section><section class="bodyHelper">    <div class="divSectionBodyModule">        <a title="Формат данных: ГИД;Идентификатор системы" class="loadData data-field-link">Загрузить список</a>        /        <a title="Формат данных: Данные в 1 столбец" class="clipboardData data-field-link noneSelect">Из буфера</a>    </div>    <div class="divSectionBodyModule">        <a title="Предыдущий элемент" class="backwardData buttonHelperWindow">            <i style="color:black" class="fa fa-step-backward"></i></a>        <a title="Запустить помощника" class="startSync buttonHelperWindow">            <i style="color:green;" class="fa fa-play"></i></a>        <a title="Следующий элемент" class="forwardData buttonHelperWindow">            <i style="color:black;" class="fa fa-step-forward"></i></a>        <a title="Остановить помощника" class="stopSync buttonHelperWindow">            <i style="color:red;" class="fa fa-stop"></i></a>    </div>    <div class="divSectionBodyModule">        Всего элементов: <span class="countElement">0</span>        <br>Осталось: <span class="countLeftElement">0</span>        <br>Следующий элемент: <span class="nextElement"></span>    </div></section>';
 var module4 = '<section class="sectionHeader">    <p class="headerText noneSelect"><b>Копировать адрес</b></p>    <i class="openHelp fa fa-question"></i>    <div class="popup">        <span class="popuptext">Данный помощник позволяет копировать данные о адресе одним нажатием или комбинацией Ctrl+Alt+Z</span>    </div></section><section class="bodyHelper">    <div class="divSectionBodyModule">        <a title="Скопировать адрес и ГИД" class="copyData data-field-link noneSelect" style="margin: 5px;">Скопировать адрес и ГИД</a>    </div></section>';
@@ -22,40 +22,39 @@ function start(html) {
         model: new HelperFloatingWindowModel(),
         view: new HelperFloatingWindowView({
             top: "100px",
-            left: "100px",
-            html: html
-        }),
+            left: "100px"
+        })
     });
 
-    let m = new ModuleFloatingWindow({
-        id: "copyHelper",
-        model: new ModuleFloatingWindowModel(),
-        view: new CopyHelpModuleView({ id: "copyHelper", html: module1 })
-    });
+    // let m = new ModuleFloatingWindow({
+    //     id: "copyHelper",
+    //     model: new ModuleFloatingWindowModel(),
+    //     view: new CopyHelpModuleView({ id: "copyHelper", html: module1 })
+    // });
 
-    hfw.addModule(m);
+    // hfw.addModule(m);
 
-    m = new ModuleFloatingWindow({
-        id: "listAddress",
-        model: new ModuleFloatingWindowModel(),
-        view: new ListAddressModuleView({ id: "listAddress", html: module2 })
-    });
+    // m = new ModuleFloatingWindow({
+    //     id: "listAddress",
+    //     model: new ModuleFloatingWindowModel(),
+    //     view: new ListAddressModuleView({ id: "listAddress", html: module2 })
+    // });
 
-    hfw.addModule(m);
+    // hfw.addModule(m);
 
-    m = new SyncListAddressModule({
-        id: "syncListAddress",
-        model: new ModuleFloatingWindowModel(),
-        view: new SyncListAddressModuleView({ id: "syncListAddress", html: module3 })
-    });
+    // m = new SyncListAddressModule({
+    //     id: "syncListAddress",
+    //     model: new ModuleFloatingWindowModel(),
+    //     view: new SyncListAddressModuleView({ id: "syncListAddress", html: module3 })
+    // });
 
-    hfw.addModule(m);
+    // hfw.addModule(m);
 
-    m = new CopyAddressModule({
-        id: "syncListAddress",
-        model: null,
-        view: new CopyAddressModuleView({ id: "syncListAddress", html: module4 })
-    });
+    // m = new CopyAddressModule({
+    //     id: "syncListAddress",
+    //     model: null,
+    //     view: new CopyAddressModuleView({ id: "syncListAddress", html: module4 })
+    // });
 
-    hfw.addModule(m);
+    // hfw.addModule(m);
 }

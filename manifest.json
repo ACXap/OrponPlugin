@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "HelperORPON",
     "description": "Помощник ОРПОН",
-    "version": "2.8.0",
+    "version": "3.0.0",
     "icons": {
         "55": "img/logoR.png"
     },
@@ -54,9 +54,12 @@
                 "Helpers/factoryUrlAddressModule.js",
                 "Helpers/factoryTextModule.js",
                 "Helpers/ui.js",
+                "Helpers/Copy/copyBase.js",
+                "Helpers/Copy/copyService.js",
+                "Helpers/Copy/CopyServiceView.js",
                 "Map/leaflet.js",
                 "Map/mapTile.js",
-                "Map/map.js",
+                "Map/mapView.js",
                 "Map/mapEditor.js",
                 "address/addressModel.js",
                 "address/addressPresenter.js",

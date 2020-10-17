@@ -288,3 +288,9 @@
 .geocoderYellow {
   background-color: rgb(209, 231, 12);
 }
+
+.pcopyService {
+  height: 45px;
+  display: flex;
+  align-items: center;
+}

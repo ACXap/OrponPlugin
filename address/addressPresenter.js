@@ -12,10 +12,12 @@ class AddressPresenter {
     _addressAttributes = [];
 
     _onOpenMap;
+    _copyService;
 
     constructor(option) {
         this._model = option.model;
         this._onOpenMap = option.onOpenMap;
+        this._copyService = option.copyService;
         this._canShowButtonJournal = option.state.canShowButtonJournal;
         this._canShowId = option.state.canShowId;
         this._canCheckFias = option.state.canCheckFias;
@@ -40,7 +42,7 @@ class AddressPresenter {
 
         if (this._canShowButtonJournal) this._addressAttributes.push(new AddressAttributeJournal({ id: "journal", name: "Журнал" }));
         if (this._canShowId) this._addressAttributes.push(new AddressAttributeId({ id: "idAddress", name: "АйДи" }));
-        if (this._canShowButtonCopyAddress) this._addressAttributes.push(new AddressAttributeCopyAddress({ id: "copyAddress", name: "Копировать" }));
+        if (this._canShowButtonCopyAddress) this._addressAttributes.push(new AddressAttributeCopyAddress({ id: "copyAddress", name: "Копировать" }, this._copyService));
         if (this._canUseGeoCoderUser) this._addressAttributes.push(new AddressAttributeMap({ id: "coordinateMap", name: "Карта", onOpenMap: this._onOpenMap }));
     }
 

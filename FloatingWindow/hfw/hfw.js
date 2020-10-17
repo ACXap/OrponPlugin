@@ -4,9 +4,12 @@
  */
 class HFW {
     static set;
-    static helpWindow
-    static LoadWindow(set) {
+    static helpWindow;
+    static copyServiceView;
+
+    static LoadWindow(set, copyServiceView) {
         this.set = set;
+        this.copyServiceView = copyServiceView;
 
         HFW.helpWindow = new HelperFloatingWindow({
             model: new HelperFloatingWindowModel(),
@@ -113,7 +116,8 @@ class HFW {
                 id: "settings",
                 model: null,
                 view: new SettingsModuleView(html),
-                set: HFW.set
+                set: HFW.set,
+                copyServiceView: HFW.copyServiceView
             });
             HFW.helpWindow.addModule(m, 8);
         });

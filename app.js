@@ -14,6 +14,8 @@ let map;
 let mapEditor;
 let importModuleGeo;
 let syncAdjacentSystem;
+const copyService = new CopyService();
+const copyServiceView = new CopyServiceView(copyService);
 
 const observerCardAddress = new MutationObserver((mut) => {
     if (window.location.hash.includes(urlCardAddress) || window.location.hash.includes(urlCardAddressDecommissioned)) {
@@ -62,13 +64,13 @@ chrome.storage.local.get(null, (result) => {
     }
 
     if (settings.canUseFloatingWindow) {
-        helpWindow = HFW.LoadWindow(settings);
+        helpWindow = HFW.LoadWindow(settings, copyServiceView);
     }
 
     if (settings.canUseGeoCoderUser) {
         const mapTile = new MapTile({ keyHere: settings.apiKeyGeoCoderHere });
 
-        map = new Map(mapTile);
+        map = new MapView(mapTile);
 
         mapEditor = new MapEditor({
             repYandex: new GeoCodYandex(settings.apiKeyGeoCoderYandex),
@@ -87,7 +89,8 @@ chrome.storage.local.get(null, (result) => {
             canShowButtonCopyAddress: settings.canShowButtonCopyAddress,
             canUseGeoCoderUser: settings.canUseGeoCoderUser
         },
-        onOpenMap: settings.canUseGeoCoderUser ? map.OpenMap.bind(map) : null
+        onOpenMap: settings.canUseGeoCoderUser ? map.OpenMap.bind(map) : null,
+        copyService: copyService
     });
 
     observerCardAddress.observe(document.documentElement, { childList: true, subtree: true });

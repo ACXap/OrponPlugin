@@ -1,5 +1,5 @@
 "use strict";
-class Map {
+class MapView {
     _elementHtml;
     _map;
     _mapTile;
