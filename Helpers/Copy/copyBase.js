@@ -7,23 +7,31 @@ class CopyBase {
 
     _getAddress() {
         const h = document.querySelector("i.fa.fa-building.blue");
-        const adr = h.parentElement.innerText.split("\n")[0];
 
-        return adr;
+        if (h && h.length > 0) {
+            return h.parentElement.innerText.split("\n")[0];
+        }
+        else {
+            return "Новосибирская обл, Новосибирск г.";
+        }
     }
 
     _getGid() {
         const divs = document.querySelectorAll("div.col-lg-8.col-md-8.col-sm-6.col-xs-12");
-        const gid = divs[1].innerText;
 
-        return gid;
+        if (divs && divs.length > 1) {
+            return divs[1].innerText;
+        }
+        else {
+            return "5203051"
+        }
     }
 
     _getFias() {
         const divs = document.querySelectorAll("div.col-lg-12.col-md-12.col-sm-12.col-xs-12");
 
         for (const d of divs) {
-            if (d.innerText.toUpperCase() === "Идентификатор ФИАС") {
+            if (d.innerText === "Идентификатор ФИАС") {
                 return d.nextElementSibling.innerText;
             }
         }
@@ -91,5 +99,40 @@ class CopyGidAddressOneRowNoText extends CopyBase {
 
     copy() {
         return `${this._getGid()}\t${this._getAddress()}`;
+    }
+}
+
+class CopyCustom extends CopyBase {
+    id = "custom";
+    args = "";
+
+    constructor(args) {
+        super();
+        this.args = args;
+    }
+
+    copy() {
+        const str = [];
+
+        for (var i = 0; i < this.args.length; i++) {
+            const el = this.args.charAt(i);
+
+            if (el === "A") {
+                str.push(this._getAddress());
+            } else if (el === "G") {
+                str.push(this._getGid());
+            } else if (el === "F") {
+                str.push(this._getFias());
+            } else if (el === "n") {
+                str.push("\n");
+            } else if (el === "t") {
+                str.push("\t");
+            }
+            else {
+                str.push(el);
+            }
+        }
+
+        return str.join("");
     }
 }

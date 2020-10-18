@@ -18,10 +18,15 @@ class CopyServiceView {
             <div class="buttonClose"><a id="closeMap" class="btn btn-secondary-a btn-second btn-primarys">Закрыть</a></div></nav>
 
             <div style="margin:10px">
-                <div class="list-group">
-                        ${this._getModule()}
+                <div>${this._getModule()}</div>
+                <div>Пользовательский формат:<input type="text" id="customCopyModule" style="width: 400px">
+                    <button id="btCustomCopyModule" style="margin:10px">Применить</button>
+                    <button id="btCustomCopyModuleShow" style="margin:10px">Просмотр</button>
                 </div>
+                <p style="margin-left:10px;font-size:14px;margin-top:-8px;">A - адрес, G - ГИД, F - ФИАС, n - перенос строки, t - табуляция</p>
+                <p id="showCustomModule"></p>
             </div>`;
+
             this._elementHtml.querySelector("#closeMap").onclick = () => this._handlerCloseBody();
 
             document.body.insertBefore(this._elementHtml, document.body.firstChild);
@@ -29,7 +34,6 @@ class CopyServiceView {
             window.setTimeout(() => {
                 this._elementHtml.className += " rootMapDivHelperOpen";
             }, 1);
-
 
             this._setHandler();
             this._setActive();
@@ -39,28 +43,11 @@ class CopyServiceView {
         }
     }
 
-    // <a class="data-field-link list-group-item list-group-item-action" id="addressGidTwoRow">
-    // <p class="pcopyService">Адрес: Новосибирск г.<br>Гид: 5203051</p></a>
-    // <a class="data-field-link list-group-item list-group-item-action" id="addressGidOneRow">
-    //     <p class="pcopyService">Адрес: Новосибирск г.   Гид: 5203051</p></a>
-    // <a class="data-field-link list-group-item list-group-item-action" id="addressGidTwoRowNoText">
-    //     <p class="pcopyService">Новосибирск г.<br>5203051</p></a>
-    //     <a class="data-field-link list-group-item list-group-item-action" id="addressGidOneRowNoText">
-    //         <p class="pcopyService">Новосибирск г.  5203051</p></a>
-    //     <a class="data-field-link list-group-item list-group-item-action" id="gidAddressTwoRow">
-    //         <p class="pcopyService">Гид: 5203051<br>Адрес: Новосибирск г.</p></a>
-    //         <a class="data-field-link list-group-item list-group-item-action" id="gidAddressOneRow">
-    //             <p class="pcopyService">Гид: 5203051    Адрес: Новосибирск г.</p></a>
-    //         <a class="data-field-link list-group-item list-group-item-action" id="gidAddressTwoRowNoText">
-    //             <p class="pcopyService">5203051<br>Новосибирск г.</p></a>
-    //             <a class="data-field-link list-group-item list-group-item-action" id="gidAddressOneRowNoText">
-    //                 <p class="pcopyService">5203051 Новосибирск г.</p></a>
-
     _getModule() {
         let str = "";
-        this._copyService._collectionModule.forEach(element => {
+        this._copyService.collectionModule.forEach(element => {
             str += `<a class="data-field-link list-group-item list-group-item-action" id="${element.id}">
-            <p class="pcopyService">${element.copy().replace("\n", "<br>")}</p></a>`;
+            <p class="pcopyService">${element.copy().replaceAll("\n", "<br>")}</p></a>`;
         });
 
         return str;
@@ -75,11 +62,29 @@ class CopyServiceView {
                 this._handlerCloseBody();
             }
         });
+
+        const b = this._elementHtml.querySelector("#btCustomCopyModule");
+        b.onclick = () => {
+            this._copyService.setCopyCustomModule(this._elementHtml.querySelector("#customCopyModule").value);
+            this._handlerCloseBody();
+        };
+
+        const bs = this._elementHtml.querySelector("#btCustomCopyModuleShow");
+        bs.onclick = () => {
+            this._copyService.setCopyCustomModule(this._elementHtml.querySelector("#customCopyModule").value);
+
+            const a = this._copyService.copyModule.copy().replaceAll("\n", "<br>");
+            this._elementHtml.querySelector("#showCustomModule").innerHTML = a;
+        }
     }
 
     _setActive() {
-        const a = this._elementHtml.querySelector(`#${this._copyService._copyModule.id}`);
-        a.className += " active";
+        const a = this._elementHtml.querySelector(`#${this._copyService.copyModule.id}`);
+        if (a) {
+            a.className += " active"
+        } else {
+            this._elementHtml.querySelector("#customCopyModule").value = this._copyService.copyModule.args;
+        };
     }
 
     _handlerCloseBody() {
